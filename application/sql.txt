@@ -1,0 +1,42 @@
+CREATE DATABASE rest_api;
+GRANT ALL ON rest_api.* TO 'rest_user'@'localhost' IDENTIFIED BY 'rest_pass';
+
+USE rest_api;
+CREATE TABLE user(
+id INT PRIMARY KEY,
+name VARCHAR(255),
+email VARCHAR(255),
+fact VARCHAR(255)
+);
+
+INSERT INTO user VALUES(1,'Bill','bgates@oamk.fi','I am Bill');
+INSERT INTO user VALUES(2,'Jim','jim@oamk.fi','I am Jim');
+INSERT INTO user VALUES(3,'Ann','ann@oamk.fi','I am Ann');
+INSERT INTO user VALUES(4,'Bob','bobby@oamk.fi','I am Bob');
+
+CREATE TABLE age_data(
+id INT PRIMARY KEY AUTO_INCREMENT,
+city VARCHAR(50),
+age INT
+);
+INSERT INTO age_data (city,age) VALUES('Oulu',5);
+INSERT INTO age_data (city,age) VALUES('Oulu',15);
+INSERT INTO age_data (city,age) VALUES('Oulu',51);
+INSERT INTO age_data (city,age) VALUES('Oulu',52);
+INSERT INTO age_data (city,age) VALUES('Oulu',25);
+INSERT INTO age_data (city,age) VALUES('Oulu',25);
+
+
+INSERT INTO age_data (city,age) VALUES('Tampere',8);
+INSERT INTO age_data (city,age) VALUES('Tampere',2);
+INSERT INTO age_data (city,age) VALUES('Tampere',12);
+INSERT INTO age_data (city,age) VALUES('Tampere',33);
+INSERT INTO age_data (city,age) VALUES('Tampere',8);
+
+INSERT INTO age_data (city,age) VALUES('Turku',8);
+INSERT INTO age_data (city,age) VALUES('Turku',18);
+INSERT INTO age_data (city,age) VALUES('Turku',81);
+INSERT INTO age_data (city,age) VALUES('Turku',38);
+INSERT INTO age_data (city,age) VALUES('Turku',28);
+INSERT INTO age_data (city,age) VALUES('Turku',48);
+INSERT INTO age_data (city,age) VALUES('Turku',8);
