@@ -14,15 +14,33 @@ class Book_model extends CI_model
   }
   function add_book($add_data){
     $this->db->insert('book',$add_data);
+    if($this->db->insert_id()!==NULL){
+      return $this->db->insert_id(); 
+    }
+    else {
+      return FALSE;
+    }  
   }
   function update_book($id, $update_data){
-    $this->db->where('book_id',$id);
+    $this->db->where('id_book',$id);
     $this->db->update('book',$update_data);
+    if($this->db->affected_rows()>0){
+      return TRUE; 
+    }
+    else {
+      return FALSE;
+    }
   }
 
   function delete_book($id){
-    $this->db->where('book_id',$id);
+    $this->db->where('id_book',$id);
     $this->db->delete('book');
+    if($this->db->affected_rows()>0){
+      return TRUE; 
+    }
+    else {
+      return FALSE;
+    }
   }
 
 
