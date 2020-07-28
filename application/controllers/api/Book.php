@@ -7,13 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 
 /**
- * This is an example of a few basic book interaction methods you could use
- * all done with a hardcoded array
+ * This is an example of a RestApi based on PHP and CodeIgniter 3.
+ * 
  *
  * @package         CodeIgniter
  * @subpackage      Rest Server
  * @category        Controller
- * @author          Phil Sturgeon, Chris Kacerguis
+ * @author          Pekka Alaluukas (edited the version made by Phil Sturgeon & Chris Kacerguis)
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
@@ -29,42 +29,40 @@ class Book extends REST_Controller {
 
         // Configure limits on our controller methods
         // Ensure you have created the 'limits' table and enabled 'limits' within application/config/rest.php
-        $this->methods['books_get']['limit'] = 500; // 500 requests per hour per book/key
-        $this->methods['books_post']['limit'] = 100; // 100 requests per hour per book/key
-        $this->methods['books_delete']['limit'] = 50; // 50 requests per hour per book/key
+        $this->methods['book_get']['limit'] = 500; // 500 requests per hour per book/key
+        $this->methods['book_post']['limit'] = 100; // 100 requests per hour per book/key
+        $this->methods['book_delete']['limit'] = 50; // 50 requests per hour per book/key
         $this->load->model('Book_model');
     }
 
-    public function books_get()
+    public function book_get()
     {
-        // books from a data store e.g. database
-        $books=$this->Book_model->get_books();
+        // book from a data store e.g. database  
 
         $id = $this->get('id');
-
-        // If the id parameter doesn't exist return all the books
+    
+        // If the id parameter doesn't exist return all the book
 
         if ($id === NULL)
         {
-            // Check if the books data store contains books (in case the database result returns NULL)
-            if ($books)
+            $book=$this->Book_model->get_book(NULL);
+            // Check if the book data store contains book (in case the database result returns NULL)
+            if ($book)
             {
                 // Set the response and exit
-                $this->response($books, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->response($book, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No books were found'
+                    'message' => 'No book were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
-
+        else {
         // Find and return a single record for a particular book.
-
-        $id = (int) $id;
 
         // Validate the id.
         if ($id <= 0)
@@ -76,13 +74,7 @@ class Book extends REST_Controller {
         // Get the book from the array, using the id as key for retrieval.
         // Usually a model is to be used for this.
 
-        $book = NULL;
-
-        if (!empty($books))
-        {
-            //Get the book from database
-            $book=$this->Book_model->get_book($id);
-        }
+        $book=$this->Book_model->get_book($id);
 
         if (!empty($book))
         {
@@ -95,9 +87,11 @@ class Book extends REST_Controller {
                 'message' => 'book could not be found'
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
+        }
+
     }
 
-    public function books_post()
+    public function book_post()
     {
         // Add a new book
         $add_data=array(
@@ -118,7 +112,7 @@ class Book extends REST_Controller {
 
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
     }
-    public function books_put()
+    public function book_put()
     {
         // Update the book
         $id=$this->put('book_id');
@@ -140,7 +134,7 @@ class Book extends REST_Controller {
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
     }
 
-    public function books_delete()
+    public function book_delete()
     {
         $id = (int) $this->get('id');
 

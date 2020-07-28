@@ -96,18 +96,18 @@
         </p>
 
         <ol>
-            <li><a href="<?php echo site_url('api/book/books'); ?>">Books</a> - defaulting to JSON</li>
-            <li><a href="<?php echo site_url('api/book/books/format/csv'); ?>">Books</a> - get it in CSV</li>
-            <li><a href="<?php echo site_url('api/book/books/id/1'); ?>">Book #1</a> - defaulting to JSON  (books/id/1)</li>
-            <li><a href="<?php echo site_url('api/book/books/1'); ?>">Book #1</a> - defaulting to JSON  (books/1)</li>
-            <li><a href="<?php echo site_url('api/book/books/id/1.xml'); ?>">Book #1</a> - get it in XML (books/id/1.xml)</li>
-            <li><a href="<?php echo site_url('api/book/books/id/1/format/xml'); ?>">Book #1</a> - get it in XML (books/id/1/format/xml)</li>
-            <li><a href="<?php echo site_url('api/book/books/id/1?format=xml'); ?>">Book #1</a> - get it in XML (books/id/1?format=xml)</li>
-            <li><a href="<?php echo site_url('api/book/books/1.xml'); ?>">Book #1</a> - get it in XML (books/1.xml)</li>
-            <li><a id="ajax" href="<?php echo site_url('api/book/books/format/json'); ?>">Books</a> - get it in JSON (AJAX request)</li>
-            <li><a href="<?php echo site_url('api/book/books.html'); ?>">Books</a> - get it in HTML (books.html)</li>
-            <li><a href="<?php echo site_url('api/book/books/format/html'); ?>">Books</a> - get it in HTML (books/format/html)</li>
-            <li><a href="<?php echo site_url('api/book/books?format=html'); ?>">Books</a> - get it in HTML (books?format=html)</li>
+            <li><a href="<?php echo site_url('api/book/book'); ?>">book</a> - defaulting to JSON</li>
+            <li><a href="<?php echo site_url('api/book/book/format/csv'); ?>">book</a> - get it in CSV</li>
+            <li><a href="<?php echo site_url('api/book/book/id/1'); ?>">Book #1</a> - defaulting to JSON  (book/id/1)</li>
+            <li><a href="<?php echo site_url('api/book/book/1'); ?>">Book #1</a> - defaulting to JSON  (book/1)</li>
+            <li><a href="<?php echo site_url('api/book/book/id/1.xml'); ?>">Book #1</a> - get it in XML (book/id/1.xml)</li>
+            <li><a href="<?php echo site_url('api/book/book/id/1/format/xml'); ?>">Book #1</a> - get it in XML (book/id/1/format/xml)</li>
+            <li><a href="<?php echo site_url('api/book/book/id/1?format=xml'); ?>">Book #1</a> - get it in XML (book/id/1?format=xml)</li>
+            <li><a href="<?php echo site_url('api/book/book/1.xml'); ?>">Book #1</a> - get it in XML (book/1.xml)</li>
+            <li><a id="ajax" href="<?php echo site_url('api/book/book/format/json'); ?>">book</a> - get it in JSON (AJAX request)</li>
+            <li><a href="<?php echo site_url('api/book/book.html'); ?>">book</a> - get it in HTML (book.html)</li>
+            <li><a href="<?php echo site_url('api/book/book/format/html'); ?>">book</a> - get it in HTML (book/format/html)</li>
+            <li><a href="<?php echo site_url('api/book/book?format=html'); ?>">book</a> - get it in HTML (book?format=html)</li>
         </ol>
 
     </div>

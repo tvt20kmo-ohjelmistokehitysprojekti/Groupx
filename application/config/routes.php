@@ -58,6 +58,6 @@ $route['translate_uri_dashes'] = TRUE;
 | Sample REST API Routes
 | -------------------------------------------------------------------------
 */
-$route['api/book/books/(:num)'] = 'api/book/books/id/$1'; // Example 4
-$route['api/book/books/(:num)'] = 'api/book/books/id/$1'; // Example 4
-$route['api/book/books/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/book/books/id/$1/format/$3$4'; // Example 8
+$route['api/book/book/(:num)'] = 'api/book/book/id/$1'; // Example 4
+$route['api/book/book/(:num)'] = 'api/book/book/id/$1'; // Example 4
+$route['api/book/book/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/book/book/id/$1/format/$3$4'; // Example 8
