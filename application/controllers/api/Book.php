@@ -86,7 +86,7 @@ class Book extends REST_Controller {
     {
         // Add a new book
         $add_data=array(
-          'book_name'=>$this->post('book_name'),
+          'name'=>$this->post('name'),
           'author'=>$this->post('author'),
           'isbn'=>$this->post('isbn')
         );
@@ -95,7 +95,7 @@ class Book extends REST_Controller {
         {
             $message = [
                 'id_book' => $insert_id,
-                'book_name' => $this->post('book_name'),
+                'name' => $this->post('name'),
                 'author' => $this->post('author'),
                 'isbn'=>$this->post('isbn'),
                 'message' => 'Added a resource'
@@ -117,7 +117,7 @@ class Book extends REST_Controller {
         // Update the book
         $id=$this->get('id');
         $update_data=array(
-          'book_name'=>$this->put('book_name'),
+          'name'=>$this->put('name'),
           'author'=>$this->put('author'),
           'isbn'=>$this->put('isbn')
         );
@@ -127,7 +127,7 @@ class Book extends REST_Controller {
         {
             $message = [
                 'id_book' => $id,
-                'book_name' => $this->put('book_name'),
+                'name' => $this->put('name'),
                 'author'=>$this->put('author'),
                 'isbn'=>$this->put('isbn'),
                 'message' => 'Updates a resource'
