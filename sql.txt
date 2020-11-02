@@ -21,3 +21,10 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 //QUIT->LOGIN
 CREATE USER 'ci_user'@'localhost' IDENTIFIED BY 'ci_pass';
 GRANT ALL on ci_rest_api.* to 'ci_user'@'localhost';
+
+CREATE TABLE user(
+id_user INT primary key auto_increment,
+username VARCHAR(20) ,
+password VARCHAR(255),
+UNIQUE usernameIndex (username)
+);
