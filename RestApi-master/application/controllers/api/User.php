@@ -34,7 +34,7 @@ class User extends REST_Controller {
     {
         // user from a data store e.g. database
 
-        $id = $this->get('id');
+        $id = $this->input->get('id');
 
         // If the id parameter doesn't exist return all users
         if ($id === NULL)
@@ -115,7 +115,7 @@ class User extends REST_Controller {
     public function user_put()
     {
         // Update the user
-        $id=$this->get('id');
+        $id=$this->input->get('id');
         $clear_password=$this->post('password');
         $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $update_data=array(
@@ -147,7 +147,7 @@ class User extends REST_Controller {
 
     public function user_delete()
     {
-        $id = $this->get('id');
+        $id = $this->input->get('id');
 
         // Validate the id.
         if ($id <= 0)

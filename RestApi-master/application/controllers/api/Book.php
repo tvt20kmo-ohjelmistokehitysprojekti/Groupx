@@ -34,7 +34,7 @@ class Book extends REST_Controller {
     {
         // book from a data store e.g. database  
 
-        $id = $this->get('id');
+        $id = $this->input->get('id');
 
         // If the id parameter doesn't exist return all books
         if ($id === NULL)
@@ -115,7 +115,7 @@ class Book extends REST_Controller {
     public function book_put()
     {
         // Update the book
-        $id=$this->get('id');
+        $id=$this->input->get('id');
         $update_data=array(
           'name'=>$this->put('name'),
           'author'=>$this->put('author'),
@@ -147,7 +147,7 @@ class Book extends REST_Controller {
 
     public function book_delete()
     {
-        $id = $this->get('id');
+        $id = $this->input->get('id');
 
         // Validate the id.
         if ($id <= 0)
